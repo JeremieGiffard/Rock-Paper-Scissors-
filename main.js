@@ -1,12 +1,23 @@
 
 
-// 1- Your game is going to play against the computer, so begin with a function called computerPlay that will randomly return either ‘Rock’, ‘Paper’ or ‘Scissors’. We’ll use this function in the game to make the computer’s play. Tip: use the console to make sure this is returning the expected output before moving to the next step!
+// 1- function that will randomly return either ‘Rock’, ‘Paper’ or ‘Scissors’. 
 
-
-
+function computerPlay(){
+    let choices = ['Rock', 'Paper', 'Scissors'];
+    let positionArray = Math.floor(Math.random()*choices.length);
+  let computerChoice = choices[positionArray];
+  console.log(computerChoice);
+}
+computerPlay();
 // 2- Write a function that plays a single round of Rock Paper Scissors. The function should take two parameters - the playerSelection and computerSelection - and then return a string that declares the winner of the round like so: "You Lose! Paper beats Rock"
 
-
+function playerSelection(){
+    let getChoice = prompt("Please select either Rock , Paper ou Scissors");
+    // 3- Make function’s parameter case-insensitive
+    let caseInsensitive = getChoice.toLowerCase();
+    console.log(caseInsensitive);
+}
+playerSelection();
 
 // 3- Make your function’s playerSelection parameter case-insensitive (so users can input rock, ROCK, RocK or any other variation).
 
