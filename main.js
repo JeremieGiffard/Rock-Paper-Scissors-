@@ -1,25 +1,56 @@
-
-
 // 1- function that will randomly return either ‘Rock’, ‘Paper’ or ‘Scissors’. 
 
-function computerPlay(){
+function computerPlay()
+{
     let choices = ['Rock', 'Paper', 'Scissors'];
     let positionArray = Math.floor(Math.random()*choices.length);
-  let computerChoice = choices[positionArray];
-  console.log(computerChoice);
+    let computerChoice = choices[positionArray];
+    return computerChoice ;
 }
-computerPlay();
-// 2- Write a function that plays a single round of Rock Paper Scissors. The function should take two parameters - the playerSelection and computerSelection - and then return a string that declares the winner of the round like so: "You Lose! Paper beats Rock"
+const computerSelection = computerPlay();
+//console.log(`${typeof computerSelection} ${computerSelection}`);
 
-function playerSelection(){
+
+
+// 2- function that ask player to choose either ‘Rock’, ‘Paper’ or ‘Scissors’. 
+function playerPlay()
+{
     let getChoice = prompt("Please select either Rock , Paper ou Scissors");
-    // 3- Make function’s parameter case-insensitive
-    let caseInsensitive = getChoice.toLowerCase();
-    console.log(caseInsensitive);
+    // 2.1- Make function’s parameter case-insensitive
+        // make first letter uper case
+        let firstLetter = getChoice.slice(0,1).toUpperCase()
+        // make rest lower case
+        let restOfString = (getChoice.slice(1)).toLowerCase();
+    let playerChoice= firstLetter + restOfString
+    console.log(playerChoice.valueOf())
+    
+    return playerChoice;
+    //console.log(`PlayerSelection: ${playerChoice}`);
+    
 }
-playerSelection();
+let playerSelection = playerPlay();
+//console.log(`${typeof playerSelection} ${playerSelection}`)
 
-// 3- Make your function’s playerSelection parameter case-insensitive (so users can input rock, ROCK, RocK or any other variation).
+
+// 3- function that plays a single round of Rock Paper Scissors. The function should take two parameters - the playerSelection and computerSelection - and then return a string that declares the winner of the round like so: "You Lose! Paper beats Rock"
+function playRound(){
+    
+    if ((playerSelection == 'Rock' && computerSelection == 'Scissors') ||
+    (playerSelection == 'Scissors' && computerSelection == 'Paper') ||
+    (playerSelection == 'Paper' && computerSelection == 'Rock')){
+        console.log(`you win- player: ${playerSelection} and computer:${computerSelection}`);
+    }
+    else if(playerSelection == computerSelection)
+    {
+        
+        console.log(`It's a tie player:${playerSelection} and computer:${computerSelection}`);
+    }
+    else{
+        console.log(`You lose- player: ${playerSelection} and computer:${computerSelection}`);
+    }
+}
+playRound();
+
 
 //mportant note: you want to return the results of this function call, not console.log() them. To test this function console.log the results:
 
