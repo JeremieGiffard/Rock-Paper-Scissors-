@@ -1,5 +1,4 @@
 // 1- function that will randomly return either ‘Rock’, ‘Paper’ or ‘Scissors’. 
-
 function computerPlay()
 {
     let choices = ['Rock', 'Paper', 'Scissors'];
@@ -24,13 +23,23 @@ function playerPlay()
     let playerChoice= firstLetter + restOfString
     console.log(playerChoice.valueOf())
     
-    return playerChoice;
-    //console.log(`PlayerSelection: ${playerChoice}`);
+    //2.2 SecurityCheck for right input
+    if(playerChoice == 'Rock' || playerChoice == 'Paper' || playerChoice == 'Scissors' )
+    {
+        return playerChoice;
+        //console.log(`PlayerSelection: ${playerChoice}`);
+    }
+    else 
+    {
+        console.log(`wrong input, Please select either Rock , Paper ou Scissors`);
+        //CallBack
+        playerPlay();
+    }
+    
     
 }
 let playerSelection = playerPlay();
 //console.log(`${typeof playerSelection} ${playerSelection}`)
-
 
 // 3- function that plays a single round of Rock Paper Scissors. The function should take two parameters - the playerSelection and computerSelection - and then return a string that declares the winner of the round like so: "You Lose! Paper beats Rock"
 function playRound(){
